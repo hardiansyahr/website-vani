@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        /* CSS styling untuk website */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffe6e6;
+            padding: 40px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            color: #ff6666;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #ff6666;
+            margin-top: 20px;
+        }
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+        footer {
+            background-color: #ff6666;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery-item {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bagian Header -->
+<header>
+    <h1>Welcome to Our Story</h1>
+    <p>Counting down to the first time we met!!</p>
+    <div id="countdown"></div>
+</header>
+
+<!-- Bagian About Us -->
+<section id="about" class="hidden">
+    <h2>About Us</h2>
+    <p>Hallo Vanii sudah lama kita saling kenal, yang awalnya cuman dari tiktok konten ml sampai sekarang</p>
+    <p>aku jadi kangen kita saut-saut an "bott" , dan kita selalu happy saat bermain</p>
+    <p>dan awal kita hancur saat kita pertama kali telpon, dan itu hal yang paling bodoh yang pernah aku lakukan</p>
+    <p>itu yang membuat mu jadi kurang yakin sama aku dan memilih orang lain.</p>
+    <p>sebenernya aku emang niat buat confes dulu,karena katamu kamu pengen pacaran di umur 23 tahun</p>
+    <p>aku takut kamu di ambil orang,eh aku salah malah seharusnya jangan confes</p>
+    <p>maaf ya kalau dulu chat ku seolah-olah maksa kamu sama aku</p>
+    <p>dah ah lupain, ya intinya aku kangen kita kek dlu tapi udah gabisa sekarang karena sibuk sama aktivitas masing"</p>
+    <p>aku buat web gini ingin menyampaikan pesan saja</p>
+    <p>maaf waktu itu aku gabisa ke soloo ya vann</p>
+    <p>selamat jalan vani , selamat sampai tujuan yahh</p>
+    <h1>SEMANGAT TERUS BAHAGIA SELALU JANGAN NANGIS TERUSSSS!!!!!!!</h1>
+</section>
+
+<!-- Bagian Galeri yang akan ditampilkan setelah countdown selesai -->
+<section id="gallery" class="hidden">
+    <h2>Gallery</h2>
+    <p>your photo is still always in my gallery </p>
+
+    <!-- Foto-foto dan video di galeri -->
+    <div class="gallery-container">
+        <img src="vani1.jpg" alt="Photo 1" class="gallery-item">
+        <img src="vani2.jpg" alt="Photo 2" class="gallery-item">
+        <img src="vnai6.jpg" alt="Photo 3" class="gallery-item">
+        <img src="vani4.jpg" alt="Photo 4" class="gallery-item">
+        
+        <!-- Menambahkan video ke galeri -->
+        <video controls class="gallery-item">
+            <source src="VID-20240609-WA0028.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+<!-- Bagian Special Events -->
+<section id="events" class="hidden">
+    <h2>please read</h2>
+    <p>I always look at you from my cellphone</p>
+    <ul>
+        <li>Semoga kamu selalu bahagia sama pasanganmu</li>
+        <li>Jadilah cewe yang bisa membanggakan orang tua</li>
+        <li>Jangan sering nangis kamu sudah becall</li>
+    </ul>
+</section>
+
+<!-- Bagian Footer -->
+<footer>
+    <p>&copy; 2024 Our Story</p>
+</footer>
+
+<!-- JavaScript untuk countdown dan menampilkan about us, galeri, dan special events setelah countdown -->
+<script>
+    // Tentukan waktu hitungan mundur dalam milidetik (misal 1 jam = 60 menit = 3600 detik = 3600 * 1000 milidetik)
+    let countdownTime = 10 * 60 * 10; // 10 menit (misal, bisa diubah sesuai keinginan)
+
+    // Fungsi untuk mengupdate countdown setiap detik
+    const countdownFunction = setInterval(function () {
+        const hours = Math.floor((countdownTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((countdownTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((countdownTime % (1000 * 60)) / 1000);
+
+        // Tampilkan hitungan mundur dalam jam, menit, dan detik
+        document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        // Jika countdown selesai
+        if (countdownTime <= 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "DIBACA MAAF SEPELE!!";
+            
+            // Menampilkan bagian About Us, Gallery, dan Special Events
+            document.getElementById("about").classList.remove("hidden");
+            document.getElementById("gallery").classList.remove("hidden");
+            document.getElementById("events").classList.remove("hidden");
+        } else {
+            // Kurangi waktu setiap detik (1000 milidetik)
+            countdownTime -= 1000;
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
